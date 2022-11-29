@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
+
+// Post
+Route::get('/post', 'PostController@index');
+Route::post('/post', 'PostController@store');
+
+//Login, Logout
+Route::get('/login', 'UserController@create');
+
+//Register
+Route::get('/register', 'RegisterController@create');
+
+Route::post('/register', 'RegisterController@store');
+
+//...
+Route::get('/hello', 'HelloController@index');
