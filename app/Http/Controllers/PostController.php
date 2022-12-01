@@ -53,27 +53,38 @@ class PostController extends Controller
     {
         $post = $this -> selectPost($id);
         if ($post != null) {
-            if (Session::get('user')->id == $post->user_id) {
+            if (Session ::get('user') -> id == $post -> user_id) {
                 return view('post.edit', compact('post'));
             }
         }
         return back();
     }
 
-    public function update(Request $request, $id) {
-        $data = $request->validate([
-           'user_id' => 'required',
-           'title' => 'required',
-           'contents' => 'required',
+    public function update(Request $request, $id)
+    {
+        $data = $request -> validate([
+            'user_id' => 'required',
+            'title' => 'required|max:255',
+            'contents' => 'required|max:1000',
         ]);
 
-        DB::table('posts')->where('id', $id)
-            ->update([
+        DB ::table('posts') -> where('id', $id)
+            -> update([
                 'title' => $data['title'],
                 'contents' => $data['contents'],
                 'updated_at' => now(),
             ]);
 
         return redirect('/post/'.$id);
+    }
+
+    public function delete(Request $request)
+    {
+        $id = $request -> id;
+        DB ::table('posts') -> where('id', $id) -> delete();
+        if (($this -> selectPost($id)) != null) {
+            return back();
+        }
+        return redirect('/post');
     }
 }
