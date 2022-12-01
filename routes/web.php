@@ -25,7 +25,9 @@ Route::get('/post/{id}/edit', 'PostController@edit');
 Route::put('/post/{id}', 'PostController@update');
 
 //Login, Logout
-Route::get('/login', 'UserController@create');
+Route::get('/login', 'LoginController@create');
+Route::post('/login', 'LoginController@login');
+Route::get('/logout', 'LoginController@logout');
 
 //Register
 Route::get('/register', 'RegisterController@create');
