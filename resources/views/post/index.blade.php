@@ -26,5 +26,6 @@
     <p>with some text Lorem Lorem ipsum dolor sit amet,
        consectetur adipisicing elit. At ea facilis hic id inventore minima nulla tempora,
        tenetur voluptates voluptatibus. Aperiam assumenda beatae minima mollitia neque nulla
-       sequi totam ut!</p>
+       sequi totam ut!
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto at consequuntur eligendi, nobis non nulla quibusdam repellat voluptatem. Aspernatur nemo, porro. Commodi dolore laboriosam molestiae nulla provident quisquam saepe sequi.</p>
 @endsection
