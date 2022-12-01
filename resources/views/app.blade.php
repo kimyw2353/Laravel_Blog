@@ -1,4 +1,5 @@
-<!doctype html>
+@php use Illuminate\Support\Facades\Session; @endphp
+    <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -7,6 +8,9 @@
         <title>@yield('title', 'Blog Home')</title>
     </head>
     <body>
+        @if( Session::has('user'))
+            <p>{{ Session::get('user')->name }}님 로그인중 ...</p>
+        @endif
         @include('nav')
         @yield('content')
     </body>
