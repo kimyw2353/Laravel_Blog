@@ -34,5 +34,7 @@ Route::get('/register', 'RegisterController@create');
 
 Route::post('/register', 'RegisterController@store');
 
-//...
-Route::get('/hello', 'HelloController@index');
+//User
+Route::get('/users', 'UserController@index');
+Route::get('/users/create', 'UserController@create');
+Route::post('/users', 'UserController@store');
