@@ -11,9 +11,23 @@
                 <form action="/post/{{ $post->id }}/edit" method="get">
                     @csrf
                     <input type="hidden" name="user_id" value="{{$post->user_id}}">
-                    <button >Post update</button>
-                </form></li>
+                    <button>Post Update</button>
+                </form>
+                <form action="/post/delete" name="deleteF" method="post">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{$post->user_id}}">
+                    <input type="hidden" name="id" value="{{$post->id}}">
+                    <input type="button" onclick="checkDelete()" value="Post Delete">
+                </form>
             @endif
         </ul>
     </div>
+    <script>
+        function checkDelete(){
+            let result = confirm('글을 삭제하시겠습니까?');
+            if(result) {
+                document.deleteF.submit();
+            }
+        }
+    </script>
 @endsection
