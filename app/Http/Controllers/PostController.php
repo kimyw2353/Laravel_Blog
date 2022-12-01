@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         $data = $request -> validate([
             'title' => 'required|max:255',
-가            'contents' => 'required|max:1000',
+            'contents' => 'required|max:1000',
             'user_id' => 'required'
         ]);
 
