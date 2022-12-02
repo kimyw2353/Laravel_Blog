@@ -84,7 +84,7 @@ return [
     ],
     'string' => ':attribute 값이 글자가 아닙니다.',
     'timezone' => ':attribute 값이 올바른 시간대가 아닙니다.',
-    'unique' => ':attribute 값은 이미 사용 중입니다.',
+    'unique' => '이미 사용 중인 :attribute입니다.',
     'url' => ':attribute 값이 유효한 URL이 아닙니다.',
 
     /*
@@ -115,5 +115,6 @@ return [
     |
     */
     'attributes' => [
+        'email' => '이메일'
     ],
 ];
