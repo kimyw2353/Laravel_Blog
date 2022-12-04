@@ -30,6 +30,6 @@ class UserController extends Controller
 
         User::create($data);
 
-        return redirect('/users');
+        return redirect('/login');
     }
 }
