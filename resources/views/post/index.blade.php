@@ -6,16 +6,9 @@
 @section('content')
     <h1>Welcome to Laravel Post List!</h1>
     {{ $test ?? ''}}
-    <p style="color: red">
-        @error('title') {{ $message }} @enderror
-    </p>
-    <form action="/post" method="post">
-        @csrf
-        <input type="hidden" name="user_id" value="{{ Session::get('user')->id }}">
-        <input type="text" name="title" placeholder="Title">
-        <input type="text" name="contents" placeholder="Contents">
-        <button>Add Post</button>
-    </form>
+    @if(Session::has('user'))
+    @include('post.create')
+    @endif
     <ul>
         @forelse($posts as $post)
             <li><a href="/post/{{ $post->id }}">{{ $post->title }}</a></li>
