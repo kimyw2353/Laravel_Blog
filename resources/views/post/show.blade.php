@@ -5,8 +5,9 @@
         <ul style="list-style: none">
             <li><h2>{{ $post->title ?? 'Title'}} / ({{ $post->name }})</h2></li>
             <li>작성일 : {{ date('Y/m/j h:i A', strtotime($post->created_at))}} | 수정일 : {{ date('Y/m/j h:i A', strtotime($post->updated_at))}}</li>
-            <li><h3>내용 : {{ $post->contents }}</h3></li>
-            @if(Session::get('user')->id == $post->user_id)
+            <hr>
+            <li><h3>{{ $post->contents }}</h3></li>
+            @if(Session::has('user') && Session::get('user')->id == $post->user_id)
             <li>
                 <form action="/post/{{ $post->id }}/edit" method="get">
                     @csrf
