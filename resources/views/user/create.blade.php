@@ -1,4 +1,5 @@
 @extends('app')
+@section('title', 'Register Page')
 @section('content')
 <h1>Add New User</h1>
 <form action="/users" method="post">
