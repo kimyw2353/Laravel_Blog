@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/something', 'TestController@test');
 
 // Post
-Route::get('/post', 'PostController@index');
+Route::get('/post', 'PostController@index')->middleware('auth');
 Route::post('/post', 'PostController@store');
 Route::get('/post/{id}', 'PostController@show');
 Route::get('/post/{id}/edit', 'PostController@edit');
@@ -26,7 +26,7 @@ Route::put('/post/{id}', 'PostController@update');
 Route::post('/post/delete', 'PostController@delete');
 
 //Login, Logout
-Route::get('/login', 'LoginController@create');
+Route::get('/login', 'LoginController@create')->name('login');
 Route::post('/login', 'LoginController@login');
 Route::get('/logout', 'LoginController@logout');
 
