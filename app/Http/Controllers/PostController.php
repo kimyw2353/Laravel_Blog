@@ -35,14 +35,14 @@ class PostController extends Controller
         return redirect() -> back();
     }
 
-    public function selectPost($id)
+    public function selectPostById($id)
     {
         return DB ::table('posts') -> join('users', 'users.id', '=', 'posts.user_id') -> select('users.name', 'posts.*') -> where('posts.id', $id) -> first();
     }
 
     public function show(Request $request, $id)
     {
-        $post = $this -> selectPost($id);
+        $post = $this -> selectPostById($id);
         if ($post != null) {
             return view('post.show', compact('post'));
         }
@@ -51,7 +51,7 @@ class PostController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $post = $this -> selectPost($id);
+        $post = $this -> selectPostById($id);
         if ($post != null) {
             if (Session ::get('user') -> id == $post -> user_id) {
                 return view('post.edit', compact('post'));
@@ -82,7 +82,7 @@ class PostController extends Controller
     {
         $id = $request -> id;
         DB ::table('posts') -> where('id', $id) -> delete();
-        if (($this -> selectPost($id)) != null) {
+        if (($this -> selectPostById($id)) != null) {
             return back();
         }
         return redirect('/post');
